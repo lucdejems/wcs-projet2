@@ -9,10 +9,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject"
-
   },
   "dependencies": {
     "expo": "^30.0.1",
+    "puppeteer": "^1.10.0",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz"
   },
