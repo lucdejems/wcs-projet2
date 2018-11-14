@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Fragment } from 'react-native';
+import { Button } from 'react-native';
 
-const ButtonCreateArticle = () => {
-  render() {
-	<Fragment>
-		<Button />
-	</Fragment>
-  };
-};
+const ButtonCreateArticle = () => (
+  <Button
+    onPress={'great'}
+    title="Ajouter un Article"
+    color="#841584"
+  />
+);
 
 export default ButtonCreateArticle;
