@@ -1,3 +1,2 @@
-import ButtonCreateArticle from './ButtonCreateArticle';
-
-export default ButtonCreateArticle;
+export { default as ButtonCreateArticle } from './ButtonCreateArticle';
+export { default as Modal } from './AppModal';
