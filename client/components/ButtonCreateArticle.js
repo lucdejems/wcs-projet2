@@ -1,12 +1,21 @@
 import React from 'react';
-import { Button } from 'react-native';
+import PropTypes from 'prop-types';
+import { StyledButton } from './StyledComponents';
 
-const ButtonCreateArticle = () => (
-  <Button
-    onPress={'great'}
+const ButtonCreateArticle = props => (
+  <StyledButton
+    onPress={props.onPress}
     title="Ajouter un Article"
     color="#841584"
   />
 );
+
+ButtonCreateArticle.prototype = {
+  onPress: PropTypes.func,
+};
+
+ButtonCreateArticle.defaultProps = {
+  onPress: () => {},
+};
 
 export default ButtonCreateArticle;
