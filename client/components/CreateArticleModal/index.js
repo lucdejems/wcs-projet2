@@ -1,19 +1,42 @@
-import React from 'react';
+import React, { Component, Button, Input } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Modal } from 'components';
 
-const CreateArticleModal = () => (
-  <Modal isOpen={isOpen} onRequestClose={() => toggleModal()} />
-);
+class CreateArticleModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalVisible: false,
+    }
+  }
+
+  toggleModal(visible) {
+    this.setState({modalVisible: visible});
+  }
+
+  render() {
+    return (
+      <Modal 
+        animationType="fade" 
+        isOpen={this.state.modalVisible} 
+        onRequestClose={() => toggleModal(!this.state.modalVisible)}
+      >
+        <Icon />
+        <Input />
+        <Button />
+      </Modal>
+    )
+  };
+};
 
 CreateArticleModal.prototype = {
-  toggleModal: PropTypes.func,
   isOpen: PropTypes.bool,
 };
 
 CreateArticleModal.defaultProps = {
-  toggleModal: false,
   isOpen: false,
 };
+
+export default CreateArticleModal;
