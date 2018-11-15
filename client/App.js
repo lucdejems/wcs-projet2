@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
-import ButtonCreateArticle from './components';
+import { StyleSheet, View } from 'react-native';
+import { ButtonCreateArticle } from './components';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 3,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
