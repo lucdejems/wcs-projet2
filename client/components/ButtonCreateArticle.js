@@ -2,15 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from './StyledComponents';
 
-const ButtonCreateArticle = props => (
-  <StyledButton
-    onPress={props.onPress}
-    title="Ajouter un Article"
-    color="#841584"
-  />
+const ButtonCreateArticle = ({ onPress }) => (
+  <StyledButton onPress={onPress} title="Ajouter un Article" color="#841584" />
 );
 
-ButtonCreateArticle.prototype = {
+ButtonCreateArticle.propTypes = {
   onPress: PropTypes.func,
 };
 
