@@ -12,10 +12,13 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "es6-promise": "^4.2.5",
     "expo": "^30.0.1",
+    "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.6.2",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-elements": "^0.19.1",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
     "styled-components": "^4.1.1"
@@ -31,7 +34,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
-    "husky": "^1.1.2",
+    "husky": "^1.1.4",
     "jest": "^23.6.0",
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
