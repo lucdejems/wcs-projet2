@@ -15,7 +15,9 @@ ButtonCreateArticle.prototype = {
 };
 
 ButtonCreateArticle.defaultProps = {
-  onPress: { () => this.startCreateArticle() },
+  onPress: () => {
+    startCreateArticle;
+  },
 };
 
 export default ButtonCreateArticle;

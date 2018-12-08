@@ -1,4 +1,4 @@
-import React, { Component, Button, Input } from 'react';
+import React, { Component, Button, Input, Icon } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -9,27 +9,27 @@ class CreateArticleModal extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-    }
+    };
   }
 
   toggleModal(visible) {
-    this.setState({modalVisible: visible});
+    this.setState({ modalVisible: visible });
   }
 
   render() {
     return (
-      <Modal 
-        animationType="fade" 
-        isOpen={this.state.modalVisible} 
+      <Modal
+        animationType="fade"
+        isOpen={this.state.modalVisible}
         onRequestClose={() => toggleModal(!this.state.modalVisible)}
       >
         <Icon />
         <Input />
         <Button />
       </Modal>
-    )
-  };
-};
+    );
+  }
+}
 
 CreateArticleModal.prototype = {
   isOpen: PropTypes.bool,
