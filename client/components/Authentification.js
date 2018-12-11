@@ -43,7 +43,7 @@ class Authentification extends Component {
         <Text style={styles.text}>
           {`
         S'inscrire 
-`}
+        `}
         </Text>
         <TextInput
           placeholder="Email"
