@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import ButtonCreateArticle from './components/ButtonCreateArticle';
 
 const firebase = require('firebase');
 
@@ -24,6 +25,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const App = () => <View style={styles.container} />;
+const App = () => (
+  <View style={styles.container}>
+    <ButtonCreateArticle />
+  </View>
+);
 
 export default App;
