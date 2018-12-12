@@ -1,16 +1,9 @@
 import actionTypes from './actionTypes';
 
-export function isUploadModalOpen(open) {
+export function toggleUploadModal() {
+  console.log('check de action', toggleUploadModal);
   return {
-    type: actionTypes.SET_IS_UPLOAD_MODAL_OPEN,
-    open,
-  };
-}
-
-export function closeUploadModal(close) {
-  return {
-    type: actionTypes.SET_UPLOAD_MODAL_CLOSE,
-    close,
+    type: actionTypes.TOGGLE_UPLOAD_MODAL,
   };
 }
 

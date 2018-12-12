@@ -1,5 +1,9 @@
 import React from 'react';
+
+import { Provider } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
+import store from './common/store';
+
 import { ButtonCreateArticle } from './components';
 
 const styles = StyleSheet.create({
@@ -12,9 +16,11 @@ const styles = StyleSheet.create({
 });
 
 const App = () => (
-  <View style={styles.container}>
-    <ButtonCreateArticle />
-  </View>
+  <Provider store={store}>
+    <View style={styles.container}>
+      <ButtonCreateArticle />
+    </View>
+  </Provider>
 );
 
 export default App;

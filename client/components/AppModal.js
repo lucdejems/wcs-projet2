@@ -1,31 +1,53 @@
-import React, { Fragment } from 'react';
-import { Modal } from 'react-native';
+import React, { Component, Icon } from 'react';
 import PropTypes from 'prop-types';
 
-const AppModal = ({ onRequestClose, isOpen, children }) => {
-  return (
-    <Fragment>
+import { TextInput, Modal, Button } from 'react-native';
+import { connect } from 'react-redux';
+import { toggleUploadModal} from '../common/actions'
+import {bindActionCreators} from "redux";
+
+class CreateArticleModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputText: "",
+    };
+  }
+
+  render() {
+    const { isUploadModalOpen, toggleUploadModalAction} = this.props;
+    return (
       <Modal
-        isOpen={isOpen}
-        onRequestClose={onRequestClose}
-        contentLabel="Modal"
+        animationType="fade"
+        visible={isUploadModalOpen}
+        onRequestClose={toggleUploadModalAction}
       >
-        {children}
+        <Icon />
+        <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.inputText}
+        />
+        <Button onPress={} title="add article"/>
       </Modal>
-    </Fragment>
-  );
+    );
+  }
+}
+
+CreateArticleModal.prototype = {
+  toggleUploadModalAction: PropTypes.func.isRequired,
+  isUploadModalOpen: PropTypes.bool,
 };
 
-AppModal.prototype = {
-  onRequestClose: PropTypes.func,
-  isOpen: PropTypes.bool,
-  children: PropTypes.any,
+CreateArticleModal.defaultProps = {
+  toggleUploadModalAction: () => {},
+  isUploadModalOpen: true,
 };
 
-AppModal.defaultProps = {
-  onRequestClose: () => {},
-  isOpen: false,
-  children: null,
+const mapStateToProps = state => {
+  return {
+    isUploadModalOpen: state.isUploadModalOpen,
+  };
 };
 
-export default AppModal;
+export default connect(mapStateToProps, { toggleUploadModalAction: toggleUploadModal})(CreateArticleModal);
