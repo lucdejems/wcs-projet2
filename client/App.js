@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import ButtonCreateArticle from './components/ButtonCreateArticle';
+import Authentification from './components/Authentification';
 
 const firebase = require('firebase');
 
@@ -25,9 +25,21 @@ const styles = StyleSheet.create({
   },
 });
 
+const firebase = require('firebase');
+
+const config = {
+  apiKey: 'AIzaSyDmIbVF8Fwy78tZjxmeootr7bMIDMfMHqc',
+  authDomain: 'wcs-projet-2.firebaseapp.com',
+  databaseURL: 'https://wcs-projet-2.firebaseio.com',
+  projectId: 'wcs-projet-2',
+  storageBucket: 'wcs-projet-2.appspot.com',
+  messagingSenderId: '747601444266',
+};
+firebase.initializeApp(config);
+
 const App = () => (
   <View style={styles.container}>
-    <ButtonCreateArticle />
+    <Authentification />
   </View>
 );
 
