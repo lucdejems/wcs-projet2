@@ -1,26 +1,14 @@
 
-
 const { getDocumentData } = require("./scrape");
 
 const saveArticle = async (req, res) => {
   const url = req.body.url;
-  const documentData = await getDocumentData(url)
-  await axios
-  .post('https://wcs-projet2.herokuapp.com/articles', {
-   articles
-  })
-  //.then( response => {
-  //  console.log(response.data);
-  //})
-  .catch( error => {
-    console.log(error);
-  });   
-   
+  const documentData = await getDocumentData(url);
 
+  //TODO: save to database
   res.status(201);
   res.send({ articles: documentData });
-  
-  };
+};
 
 const app = express();
 
