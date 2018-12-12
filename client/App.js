@@ -4,7 +4,7 @@ import Authentification from './components/Authentification';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 3,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
