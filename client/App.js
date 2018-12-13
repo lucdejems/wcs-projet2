@@ -1,5 +1,9 @@
 import React from 'react';
+
+import { Provider } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
+import store from './common/store';
+import { ListArticles } from './components/ListArticles';
 import { NativeRouter, Route } from 'react-router-native';
 import { Authentification, SignIn, ListArticles } from './components';
 
@@ -17,6 +21,7 @@ const config = {
 };
 firebase.initializeApp(config);
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 3,
@@ -27,13 +32,16 @@ const styles = StyleSheet.create({
 });
 
 const App = () => (
-  <NativeRouter>
-    <View style={styles.container}>
-      <Route exact path="/" component={Authentification} />
-      <Route path="/login" component={SignIn} />
-      <Route path="/list" component={ListArticles} />
-    </View>
-  </NativeRouter>
+
+  <Provider store={store}>
+    <NativeRouter>
+      <View style={styles.container}>
+        <Route exact path="/" component={Authentification} />
+        <Route path="/login" component={SignIn} />
+        <Route path="/list" component={ListArticles} />
+      </View>
+    </NativeRouter>
+  </Provider>
 );
 
 export default App;
