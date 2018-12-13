@@ -17,12 +17,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 4,
   },
-  linkLogin: {
-    color: '#3358FF',
-  },
 });
 
-class Authentification extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,36 +35,17 @@ class Authentification extends Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
+        Alert.alert('Connexion effectué');
         history.push('/list');
       })
-      .catch(() => {
-        Alert.alert('Connexion échoué');
-      });
-  };
-
-  signup = () => {
-    const { email, password } = this.state;
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        Alert.alert('Inscription effectué');
-        this.login();
-      })
-      .catch(error => {
-        Alert.alert(error);
-      });
+      .catch(() => {});
   };
 
   render() {
     const { email, password } = this.state;
     return (
       <View>
-        <Text style={styles.text}>
-          {`
-        S'inscrire 
-        `}
-        </Text>
+        <Text style={styles.text}>Se connecter</Text>
         <TextInput
           placeholder="Email"
           style={styles.input}
@@ -80,14 +58,15 @@ class Authentification extends Component {
           onChangeText={newPassword => this.setState({ password: newPassword })}
           value={password}
         />
-        <Text>
-          Déja inscrit ?
-          <Link to="/login">
-            <Text style={styles.linkLogin}>Se connecter</Text>
-          </Link>
-        </Text>
+        <Link to="/">
+          <Text style={styles.text}>
+            {` 
+          S'inscrire 
+          `}
+          </Text>
+        </Link>
         <Button
-          onPress={this.signup}
+          onPress={this.login}
           title="Continuer"
           color="#3358FF"
           accessibilityLabel="Valid Form Sign in"
@@ -97,8 +76,8 @@ class Authentification extends Component {
   }
 }
 
-Authentification.propTypes = {
+SignIn.propTypes = {
   history: PropTypes.string.isRequired,
 };
 
-export default withRouter(Authentification);
+export default withRouter(SignIn);
