@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import store from './common/store';
 
-import { ButtonCreateArticle } from './components';
+import { ButtonCreateArticle, CreateArticleModal } from './components';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,6 +19,7 @@ const App = () => (
   <Provider store={store}>
     <View style={styles.container}>
       <ButtonCreateArticle />
+      <CreateArticleModal />
     </View>
   </Provider>
 );

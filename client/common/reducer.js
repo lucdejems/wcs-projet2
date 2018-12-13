@@ -1,13 +1,12 @@
 import actionTypes from './actionTypes';
 
-const defaultState = {
+const initialState = {
   isUploadModalOpen: false,
   articleFetched: {},
 };
 
-function reducer(state = defaultState, action) {
-  console.log('check du state de isUploadModalOpen', state.isUploadModalOpen);
-  switch (action.Types) {
+function reducer(state = initialState, action) {
+  switch (action.type) {
     case actionTypes.TOGGLE_UPLOAD_MODAL:
       return { ...state, isUploadModalOpen: !state.isUploadModalOpen };
     case actionTypes.SET_ARTICLE_FETCHED:
