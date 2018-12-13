@@ -3,8 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import store from './common/store';
-
-import { ButtonCreateArticle, CreateArticleModal } from './components';
+import { ListArticles } from './components/ListArticles';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,8 +17,7 @@ const styles = StyleSheet.create({
 const App = () => (
   <Provider store={store}>
     <View style={styles.container}>
-      <ButtonCreateArticle />
-      <CreateArticleModal />
+      <ListArticles />
     </View>
   </Provider>
 );
