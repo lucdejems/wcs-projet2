@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "parse-domain": "^2.1.6",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "name": "react-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "mocha": "^4.1.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

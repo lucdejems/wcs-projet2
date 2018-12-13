@@ -4,6 +4,23 @@ import { Provider } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import store from './common/store';
 import { ListArticles } from './components/ListArticles';
+import { NativeRouter, Route } from 'react-router-native';
+import { Authentification, SignIn, ListArticles } from './components';
+
+const firebase = require('firebase');
+
+// Initialize Firebase
+// TODO: Replace with your project's customized code snippet
+const config = {
+  apiKey: 'AIzaSyDmIbVF8Fwy78tZjxmeootr7bMIDMfMHqc',
+  authDomain: 'wcs-projet-2.firebaseapp.com',
+  databaseURL: 'https://wcs-projet-2.firebaseio.com',
+  projectId: 'wcs-projet-2',
+  storageBucket: 'wcs-projet-2.appspot.com',
+  messagingSenderId: '747601444266',
+};
+firebase.initializeApp(config);
+
 
 const styles = StyleSheet.create({
   container: {
@@ -15,10 +32,15 @@ const styles = StyleSheet.create({
 });
 
 const App = () => (
+
   <Provider store={store}>
-    <View style={styles.container}>
-      <ListArticles />
-    </View>
+    <NativeRouter>
+      <View style={styles.container}>
+        <Route exact path="/" component={Authentification} />
+        <Route path="/login" component={SignIn} />
+        <Route path="/list" component={ListArticles} />
+      </View>
+    </NativeRouter>
   </Provider>
 );
 
