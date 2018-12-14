@@ -64,13 +64,12 @@ class Authentification extends Component {
   updateProfile = () => {
     const user = firebase.auth().currentUser;
     const { name } = this.state;
-    user.updateProfile({
-      displayName: name,
-    }).then(function(resp) {
-      console.log(resp.displayName)
-    }).catch(function(error) {
-      console.log(error)
-    });
+    user
+      .updateProfile({
+        displayName: name,
+      })
+      .then(() => {})
+      .catch(() => {});
   };
 
   render() {

@@ -7,15 +7,15 @@ class ListArticles extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {}
-    }
+      user: {},
+    };
   }
 
   getCurrentUser = () => {
     const user = firebase.auth().currentUser;
     this.setState({
-      user: user
-    })
+      user,
+    });
   };
 
   componentDidMount() {
@@ -23,7 +23,7 @@ class ListArticles extends Component {
   }
 
   render() {
-    return <Text>Bienvenue {this.state.user.displayName} !</Text>;
+    return <Text> Bienvenue {this.state.user.displayName} !</Text>
   }
 }
 

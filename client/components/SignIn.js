@@ -34,8 +34,7 @@ class SignIn extends Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((resp) => {
-        console.log(resp);
+      .then(() => {
         Alert.alert('Connexion effectué');
         history.push('/list');
       })
