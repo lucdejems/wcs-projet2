@@ -42,7 +42,7 @@ class Authentification extends Component {
         history.push('/list');
       })
       .catch(() => {
-        Alert.alert('Connexion échoué');
+        Alert.alert('Connexion échouée');
       });
   };
 
@@ -56,8 +56,8 @@ class Authentification extends Component {
         Alert.alert('Inscription effectué');
         this.login();
       })
-      .catch(error => {
-        Alert.alert(error);
+      .catch(() => {
+        Alert.alert('Veuillez remplir les champs');
       });
   };
 
@@ -99,12 +99,10 @@ class Authentification extends Component {
           onChangeText={newPassword => this.setState({ password: newPassword })}
           value={password}
         />
-        <Text>
-          Déja inscrit ?
-          <Link to="/login">
-            <Text style={styles.linkLogin}>Se connecter</Text>
-          </Link>
-        </Text>
+        <Text>Déja inscrit ?</Text>
+        <Link to="/login">
+          <Text style={styles.linkLogin}>Se connecter</Text>
+        </Link>
         <Button
           onPress={this.signup}
           title="Continuer"
@@ -117,7 +115,7 @@ class Authentification extends Component {
 }
 
 Authentification.propTypes = {
-  history: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(Authentification);
