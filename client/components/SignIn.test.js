@@ -2,11 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { View } from 'react-native';
 
-import App from './App';
+import SignIn from './SignIn';
 
-describe('App', () => {
+describe('SignIn', () => {
   it('renders View', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<SignIn />);
     expect(wrapper.find(View));
   });
 });

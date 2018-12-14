@@ -17,16 +17,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 4,
   },
-  linkLogin: {
-    color: '#3358FF',
-  },
 });
 
-class Authentification extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
       email: '',
       password: '',
     };
@@ -39,54 +35,17 @@ class Authentification extends Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
+        Alert.alert('Connexion effectuée');
         history.push('/list');
       })
-      .catch(() => {
-        Alert.alert('Connexion échouée');
-      });
-  };
-
-  signup = () => {
-    const { email, password } = this.state;
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        this.updateProfile();
-        Alert.alert('Inscription effectué');
-        this.login();
-      })
-      .catch(() => {
-        Alert.alert('Veuillez remplir les champs');
-      });
-  };
-
-  updateProfile = () => {
-    const user = firebase.auth().currentUser;
-    const { name } = this.state;
-    user
-      .updateProfile({
-        displayName: name,
-      })
-      .then(() => {})
       .catch(() => {});
   };
 
   render() {
-    const { name, email, password } = this.state;
+    const { email, password } = this.state;
     return (
       <View>
-        <Text style={styles.text}>
-          {`
-        S'inscrire 
-        `}
-        </Text>
-        <TextInput
-          placeholder="Prénom"
-          style={styles.input}
-          onChangeText={newName => this.setState({ name: newName })}
-          value={name}
-        />
+        <Text style={styles.text}>Se connecter</Text>
         <TextInput
           placeholder="Email"
           style={styles.input}
@@ -99,12 +58,15 @@ class Authentification extends Component {
           onChangeText={newPassword => this.setState({ password: newPassword })}
           value={password}
         />
-        <Text>Déja inscrit ?</Text>
-        <Link to="/login">
-          <Text style={styles.linkLogin}>Se connecter</Text>
+        <Link to="/">
+          <Text style={styles.text}>
+            {` 
+          S'inscrire 
+          `}
+          </Text>
         </Link>
         <Button
-          onPress={this.signup}
+          onPress={this.login}
           title="Continuer"
           color="#3358FF"
           accessibilityLabel="Valid Form Sign in"
@@ -114,8 +76,8 @@ class Authentification extends Component {
   }
 }
 
-Authentification.propTypes = {
+SignIn.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default withRouter(Authentification);
+export default withRouter(SignIn);

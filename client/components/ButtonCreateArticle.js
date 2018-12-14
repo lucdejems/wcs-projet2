@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { StyledButton } from './StyledComponents';
 
-const ButtonCreateArticle = ({ onPress }) => (
-  <StyledButton onPress={onPress} title="Ajouter un Article" color="#841584" />
+import { toggleUploadModal } from '../common/actions';
+
+const ButtonCreateArticle = ({ toggleUploadModalAction }) => (
+  <StyledButton
+    onPress={toggleUploadModalAction}
+    title="Ajouter un Article"
+    color="#841584"
+  />
 );
 
 ButtonCreateArticle.propTypes = {
-  onPress: PropTypes.func,
+  toggleUploadModalAction: PropTypes.func.isRequired,
 };
 
-ButtonCreateArticle.defaultProps = {
-  onPress: () => {},
-};
+function mapStateToProps() {
+  return {};
+}
 
-export default ButtonCreateArticle;
+export default connect(
+  mapStateToProps,
+  { toggleUploadModalAction: toggleUploadModal }
+)(ButtonCreateArticle);
