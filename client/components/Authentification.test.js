@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { View } from 'react-native';
+import { View, Button } from 'react-native';
+import firebase from "firebase";
 
 import Authentification from './Authentification';
 
