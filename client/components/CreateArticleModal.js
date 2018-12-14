@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Text, TextInput, Modal, Button, View } from 'react-native';
 import { connect } from 'react-redux';
 import { toggleUploadModal } from '../common/actions';
+import { postArticle } from '../services/ArticleService';
 
 class CreateArticleModal extends Component {
   constructor(props) {
@@ -12,6 +13,15 @@ class CreateArticleModal extends Component {
       inputText: '',
     };
   }
+
+  handleClick = (url) => {
+    postArticle(url)
+      .then(() => {
+        this.props.toggleUploadModalAction()
+      })
+  }
+
+
 
   render() {
     const { isUploadModalOpen, toggleUploadModalAction } = this.props;
@@ -31,7 +41,7 @@ class CreateArticleModal extends Component {
             value={inputText}
             placeholder={"Entrez l'URL de l'article"}
           />
-          <Button onPress={toggleUploadModalAction} title="add article" />
+          <Button onPress={this.handleClick(this.state.inputText)} title="add article" />
         </Modal>
       </View>
     );
