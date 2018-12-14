@@ -31,10 +31,7 @@ class CreateArticleModal extends Component {
             value={inputText}
             placeholder={"Entrez l'URL de l'article"}
           />
-          <Button
-            onPress={toggleUploadModalAction}
-            title="add article"
-          />
+          <Button onPress={toggleUploadModalAction} title="add article" />
         </Modal>
       </View>
     );

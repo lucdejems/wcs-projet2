@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { withRouter } from 'react-router-native';
 import firebase from 'firebase';
-import ButtonCreateArticle from "./ButtonCreateArticle";
-import CreateArticleModal from "./CreateArticleModal";
+import ButtonCreateArticle from './ButtonCreateArticle';
+import CreateArticleModal from './CreateArticleModal';
 
 class ListArticles extends Component {
   constructor(props) {
@@ -13,6 +13,10 @@ class ListArticles extends Component {
     };
   }
 
+  componentDidMount() {
+    this.getCurrentUser();
+  }
+
   getCurrentUser = () => {
     const user = firebase.auth().currentUser;
     this.setState({
@@ -20,18 +24,15 @@ class ListArticles extends Component {
     });
   };
 
-  componentDidMount() {
-    this.getCurrentUser();
-  }
-
   render() {
+    const { user } = this.state;
     return (
       <View>
-        <Text> Bienvenue {this.state.user.displayName} !</Text>
+        <Text>Bienvenue {user.displayName} !</Text>
         <ButtonCreateArticle />
         <CreateArticleModal />
       </View>
-    )
+    );
   }
 }
 
