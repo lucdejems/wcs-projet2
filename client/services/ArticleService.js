@@ -4,11 +4,8 @@ function getArticle() {
   return axios.get('https://wcs-projet2.herokuapp.com/articles');
 }
 
-function postArticle() {
-
-  return axios.post('https://wcs-projet2.herokuapp.com/articles');
-  return axios.post('http://localhost:19002/');
-
+function postArticle(url) {
+  return axios.post('http://localhost:3004/articles', {url});
 }
 
 // eslint-disable-next-line
