@@ -25,6 +25,4 @@ const getDocumentData = async url => {
 };
 
 module.exports = { getDocumentData }
-getDocumentData(
-  "http://hackernoon.com/design-psychology-gestalt-driven-ux-64ac01cd257a"
-).then(result => console.log(result));
+
