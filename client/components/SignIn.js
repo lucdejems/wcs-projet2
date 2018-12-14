@@ -35,7 +35,7 @@ class SignIn extends Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        Alert.alert('Connexion effectué');
+        Alert.alert('Connexion effectuée');
         history.push('/list');
       })
       .catch(() => {});

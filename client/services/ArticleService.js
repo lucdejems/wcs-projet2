@@ -4,5 +4,9 @@ function getArticle() {
   return axios.get('https://wcs-projet2.herokuapp.com/articles');
 }
 
+function postArticle() {
+  return axios.post('http://localhost:19002/');
+}
+
 // eslint-disable-next-line
-export { getArticle };
+export { getArticle, postArticle };

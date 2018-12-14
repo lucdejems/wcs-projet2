@@ -8,8 +8,6 @@ import { CreateArticleModal } from './CreateArticleModal';
 const ListArticles = () => (
   <View>
     <Text>Bienvenue sur ListArticles</Text>
-    <ButtonCreateArticle />
-    <CreateArticleModal />
   </View>
 );
 
