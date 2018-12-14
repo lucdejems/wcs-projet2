@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Text, TextInput, Modal, Button, View } from 'react-native';
+import { Text, TextInput, Modal, Button, View, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { toggleUploadModal } from '../common/actions';
-import { postArticle } from '../services/ArticleService';
+import axios from "axios";
+
 
 class CreateArticleModal extends Component {
   constructor(props) {
@@ -14,12 +15,23 @@ class CreateArticleModal extends Component {
     };
   }
 
-  handleClick = (url) => {
-    postArticle(url)
+  handleClick = () => {
+    console.log(this.state.inputText);
+    const data = {
+      url: this.state.inputText
+    };
+    console.log(data);
+    axios.post('http://192.168.1.33:3004/articles', data)
       .then(() => {
-        this.props.toggleUploadModalAction()
+        this.props.toggleUploadModalAction();
+        Alert.alert('Article ajouté');
       })
-  }
+      .catch((error) => {
+        console.log(error)
+      });
+  };
+
+
 
 
 
@@ -41,7 +53,7 @@ class CreateArticleModal extends Component {
             value={inputText}
             placeholder={"Entrez l'URL de l'article"}
           />
-          <Button onPress={this.handleClick(this.state.inputText)} title="add article" />
+          <Button onPress={this.handleClick} title="add article" />
         </Modal>
       </View>
     );

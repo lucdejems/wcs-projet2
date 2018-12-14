@@ -44,4 +44,4 @@ app
        res.sendStatus(201);
     });
   })
-  .listen(3004, () => console.log("server, listening on port 3004"));
+  .listen(3004, '0.0.0.0', () => console.log("server, listening on port 3004"));
