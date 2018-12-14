@@ -32,7 +32,7 @@ class CreateArticleModal extends Component {
             placeholder={"Entrez l'URL de l'article"}
           />
           <Button
-            onPress={this.handleClick(state.inputText)}
+            onPress={toggleUploadModalAction}
             title="add article"
           />
         </Modal>
