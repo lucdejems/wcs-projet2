@@ -26,6 +26,7 @@ class Authentification extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       email: '',
       password: '',
     };
@@ -51,7 +52,8 @@ class Authentification extends Component {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        Alert.alert('Inscription effectuée');
+        this.updateProfile();
+        Alert.alert('Inscription effectué');
         this.login();
       })
       .catch(() => {
@@ -59,8 +61,19 @@ class Authentification extends Component {
       });
   };
 
+  updateProfile = () => {
+    const user = firebase.auth().currentUser;
+    const { name } = this.state;
+    user
+      .updateProfile({
+        displayName: name,
+      })
+      .then(() => {})
+      .catch(() => {});
+  };
+
   render() {
-    const { email, password } = this.state;
+    const { name, email, password } = this.state;
     return (
       <View>
         <Text style={styles.text}>
@@ -68,6 +81,12 @@ class Authentification extends Component {
         S'inscrire 
         `}
         </Text>
+        <TextInput
+          placeholder="Prénom"
+          style={styles.input}
+          onChangeText={newName => this.setState({ name: newName })}
+          value={name}
+        />
         <TextInput
           placeholder="Email"
           style={styles.input}

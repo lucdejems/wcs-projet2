@@ -9,4 +9,8 @@ describe('Authentification', () => {
     const wrapper = shallow(<Authentification />);
     expect(wrapper.find(View));
   });
+
+  describe('when form filled', () => {
+    it('call firebase function', () => {});
+  });
 });

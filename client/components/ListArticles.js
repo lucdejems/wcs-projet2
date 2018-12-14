@@ -1,14 +1,30 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { Text } from 'react-native';
 import { withRouter } from 'react-router-native';
+import firebase from 'firebase';
 
-import { ButtonCreateArticle } from './ButtonCreateArticle';
-import { CreateArticleModal } from './CreateArticleModal';
+class ListArticles extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+    };
+  }
 
-const ListArticles = () => (
-  <View>
-    <Text>Bienvenue sur ListArticles</Text>
-  </View>
-);
+  getCurrentUser = () => {
+    const user = firebase.auth().currentUser;
+    this.setState({
+      user,
+    });
+  };
+
+  componentDidMount() {
+    this.getCurrentUser();
+  }
+
+  render() {
+    return <Text> Bienvenue {this.state.user.displayName} !</Text>
+  }
+}
 
 export default withRouter(ListArticles);
